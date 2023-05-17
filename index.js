@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ limit: "500mb", extended: true }));
 //routes
 const CourseRoute = require("./routes/course.routes");
 //routes
+connectDb();
 //
 app.get("/", async (req, res, next) => {
   res
