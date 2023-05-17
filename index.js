@@ -24,12 +24,12 @@ app.get("/", async (req, res, next) => {
 });
 //
 app.use("/api/course", CourseRoute);
-
+app.use(errorHandler);
 const server = app.listen(3000, () => {
   console.log(`server ${process.env.PORT} port дээр аслаа`.rainbow);
 });
 process.on("unhandledRejection", (err, promise) => {
-  console.log(`алдаа гарлаа : ${err.message}`.red.underline.red.bold);
+  console.log(`алдаа гар  лаа : ${err.message}`.red.underline.red.bold);
   server.close(() => {
     process.exit(1);
   });
