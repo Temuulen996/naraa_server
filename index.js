@@ -21,7 +21,11 @@ connectDb();
 app.get("/", async (req, res, next) => {
   res
     .status(200)
-    .send({ port: process.env.PORT, mongodb: process.env.MONGODB_URI });
+    .send({
+      success: true,
+      port: process.env.PORT,
+      mongodb: process.env.MONGODB_URI,
+    });
 });
 //
 app.use("/api/course", CourseRoute);
