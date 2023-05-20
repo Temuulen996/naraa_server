@@ -9,7 +9,7 @@ app.use(cors());
 const connectDb = require("./config/db");
 const errorHandler = require("./middleware/errorHandler");
 var bodyParser = require("body-parser");
-app.use(express.json({ limit: "50mb" }));
+app.use(express.json({ limit: "500mb" }));
 
 app.use(bodyParser.json({ limit: "500mb" }));
 app.use(bodyParser.urlencoded({ limit: "500mb", extended: true }));
@@ -19,13 +19,11 @@ const CourseRoute = require("./routes/course.routes");
 connectDb();
 //
 app.get("/", async (req, res, next) => {
-  res
-    .status(200)
-    .send({
-      success: true,
-      port: process.env.PORT,
-      mongodb: process.env.MONGODB_URI,
-    });
+  res.status(200).send({
+    success: true,
+    port: process.env.PORT,
+    mongodb: process.env.MONGODB_URI,
+  });
 });
 //
 app.use("/api/course", CourseRoute);
