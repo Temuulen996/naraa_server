@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const CourseSchema = mongoose.Schema({
   course_name: { type: String, required: true },
   instractor: { type: String, required: true },
-  price: { type: Date, required: true },
+  price: { type: String, required: true },
+  image: { type: String, required: true },
   schedule: [
     {
       day_of_week: String,
